@@ -24,12 +24,18 @@
             <artifactId>servlet-api</artifactId>
             <version>2.4</version>
         </dependency>
+           
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
 
         <!-- MySQL DATABASE -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.35</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -72,6 +78,34 @@
           </connectors>
         </configuration>
       </plugin>
+      
+             
+      <plugin>
+   <groupId>org.flywaydb</groupId>
+   <artifactId>flyway-maven-plugin</artifactId>
+   <executions>
+      <execution>
+         <phase>generate-sources</phase>
+         <goals>
+            <goal>migrate</goal>
+         </goals>
+      </execution>
+   </executions>
+   <configuration>
+      <driver>org.postgresql.Driver</driver>
+      <url> jdbc:mysql://3.22.94.249:3306/mjjs</url>
+      <user>sree</user>
+      <password>@Admin123</password>
+      <baselineOnMigrate>true</baselineOnMigrate>
+      <schemas>public</schemas>
+      <locations>
+         <location>
+             filesystem:src/main/resources/db/migration
+         </location>
+      </locations>
+   </configuration>
+</plugin>
+         
     </plugins>
   </build>
 
