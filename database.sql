@@ -1,0 +1,4 @@
+CREATE DATABASE mjjs DEFAULT CHARACTER SET utf8;
+GRANT ALL ON mjjs.* TO 'mjjsuser'@'%' IDENTIFIED BY '@Admin123';
+CREATE TABLE mjjs (name TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO mjjs (name) VALUES ('tsugi');
