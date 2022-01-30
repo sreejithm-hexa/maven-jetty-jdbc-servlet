@@ -100,7 +100,7 @@
       <schemas>public</schemas>
       <locations>
          <location>
-             filesystem:src/main/resources/db/migration
+             filesystem:/var/lib/jenkins/flyway-8.4.3/sql/
          </location>
       </locations>
    </configuration>
